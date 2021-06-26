@@ -1,0 +1,168 @@
+﻿<UserControl x:Class="EconomicGameWPF.Minigame1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" Background="MintCream" MaxHeight="60" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                        <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run FontSize="40" FontWeight="Bold"  Text="Экономика как наука"/>
+                            <LineBreak/> 
+                            <Run Text="    "/> Экономика - большая широкая наука, изучающая множество вещей. У нее 
+                            множество определений, но многие сходятся на том, что эта наука изучает способы организации 
+                            ограниченных ресурсов и их отношение с человеческими безграничными целями. 
+                            <LineBreak/> 
+                            <Run Text="    "/> Именно из-за ограниченных ресурсов мы не можем напроизводить побольше 
+                            всего – еды, одежды, домов для людей, чтобы все стало хорошо.
+                            <LineBreak/>
+                            <Run Text="    "/> Конечно, потребности у нас всех безграничны, почти любой человек при 
+                            получении новой машины вскоре начнет мечтать о машине подороже, или о даче и так далее.
+                            <LineBreak/>
+                            <Run Text="    "/> Блага - экономическое понятие для вещей, которые удовлетворяют наши 
+                            потребности. Есть свободные блага, их хватит на всех (например, воздух). Но иногда для 
+                            их производства нужны ресурсы, такие блага называют ограниченными, экономическими (их еще разделяют на товары и услуги). 
+                            <LineBreak/>
+                            <Run Text="    "/> Тут и возникает одно из главных понятий экономики - необходимость выбора.
+                        </TextBlock>
+                        <Image Source="images/firstTheme/choiceEconomic.png" Margin="30" MaxWidth="600" HorizontalAlignment="Center"/>
+                        <TextBlock Margin="25" TextWrapping="Wrap">
+                            <Run Text="    "/> Рассмотрим поближе термин "ресурсы", они же "факторы производства". Экономисты выделяют 4 типа ресурсов:
+                            <LineBreak/>
+                            <Run Text="    "/> • Труд (например рабочие на заводе или дворники)
+                            <LineBreak/>
+                            <Run Text="    "/> • Капитал (инструменты и оборудование, которое нужно для производства благ). Деньги за капитал не считаются.
+                            <LineBreak/>
+                            <Run Text="    "/> • Земля (природные ресурсы - зеленая жнергия, руды и т.д.)
+                            <LineBreak/>
+                            <Run Text="    "/> • И ресурс, о котором многие забывают - предпринимательский талант. Без него многие фирмы не смогли бы выйти в плюс даже при наличии всех остальных ресурсов.
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Run Text="    "/> Перед тем, как мы перейдем к последствиям необходимости экономического выбора, давайте закрепим понимание различных видов факторов произодства.
+                        </TextBlock>
+                    <Button x:Name="taskButton" Content="К заданию" Margin="40" Background="MintCream" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="Укажите, к какому фактору производства относятся вещи на картинках:" MaxWidth="600"/>
+
+                        <Image Source="images/firstTheme/plane.png" Margin="40" MaxWidth="300"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="laborRadioButton1" Margin="10" Content="Труд"/>
+                            <RadioButton x:Name="capitalRadioButton1" Margin="10" Content="Капитал"/>
+                            <RadioButton x:Name="fieldRadioButton1" Margin="10" Content="Земля"/>
+                            <RadioButton x:Name="entrepreneurRadioButton1" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предпринимательская способность" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Image Source="images/firstTheme/ford.png" Margin="40" MaxWidth="300"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="laborRadioButton2" Margin="10" Content="Труд"/>
+                            <RadioButton x:Name="capitalRadioButton2" Margin="10" Content="Капитал"/>
+                            <RadioButton x:Name="fieldRadioButton2" Margin="10" Content="Земля"/>
+                            <RadioButton x:Name="entrepreneurRadioButton2" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предпринимательская способность" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Image Source="images/firstTheme/windEnergy.jpg" Margin="40" MaxWidth="300"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="laborRadioButton3" Margin="10" Content="Труд"/>
+                            <RadioButton x:Name="capitalRadioButton3" Margin="10" Content="Капитал"/>
+                            <RadioButton x:Name="fieldRadioButton3" Margin="10" Content="Земля"/>
+                            <RadioButton x:Name="entrepreneurRadioButton3" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предпринимательская способность" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Image Source="images/firstTheme/sea.png" Margin="40" MaxWidth="300"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="laborRadioButton4" Margin="10" Content="Труд"/>
+                            <RadioButton x:Name="capitalRadioButton4" Margin="10" Content="Капитал"/>
+                            <RadioButton x:Name="fieldRadioButton4" Margin="10" Content="Земля"/>
+                            <RadioButton x:Name="entrepreneurRadioButton4" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предпринимательская способность" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Image Source="images/firstTheme/consultant.png" Margin="40" MaxWidth="300"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="laborRadioButton5" Margin="10" Content="Труд"/>
+                            <RadioButton x:Name="capitalRadioButton5" Margin="10" Content="Капитал"/>
+                            <RadioButton x:Name="fieldRadioButton5" Margin="10" Content="Земля"/>
+                            <RadioButton x:Name="entrepreneurRadioButton5" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предпринимательская способность" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Image Source="images/firstTheme/someInsudtrialThings.png" Margin="40" MaxWidth="300"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="laborRadioButton6" Margin="10" Content="Труд"/>
+                            <RadioButton x:Name="capitalRadioButton6" Margin="10" Content="Капитал"/>
+                            <RadioButton x:Name="fieldRadioButton6" Margin="10" Content="Земля"/>
+                            <RadioButton x:Name="entrepreneurRadioButton6" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предпринимательская способность" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Image Source="images/firstTheme/teacher.png" Margin="40" MaxWidth="300"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="laborRadioButton7" Margin="10" Content="Труд"/>
+                            <RadioButton x:Name="capitalRadioButton7" Margin="10" Content="Капитал"/>
+                            <RadioButton x:Name="fieldRadioButton7" Margin="10" Content="Земля"/>
+                            <RadioButton x:Name="entrepreneurRadioButton7" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предпринимательская способность" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+                        <Button x:Name="readyButton" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Background="MintCream" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

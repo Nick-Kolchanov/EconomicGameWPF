@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="EconomicGameWPF.MinigameMarket"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" MaxHeight="60" Background="MintCream" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                    <TextBlock Margin="25 25 25 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Text="Рыночное равновесие"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run Text="    "/> Итак, пришло время рассмотреть ситуации, которые происходят на рынке, с помощью анализа спроса и предложения. Давайте рассмотрим одну из таких:
+                            <LineBreak/>
+                            <Image Source="images/marketTheme/equilibrium.png" MaxWidth="400" Margin="30"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Здесь на одном графике представлены спрос и предложение. В центре они пересекаются, значит в этой точке предложение будет равно спросу. Это отличная ситуация, потому что в таком случае весь спрос будет удовлетворен предложением. Горизонтальная и вертикальная линия, идущая из точки пересечения – соответственно указывают на цену, которая установилась при такой ситуации на рынке и на объем продаж (их называют равновесными).
+                            <LineBreak/>
+                            <Run Text="    "/> Рассмотрим другую ситуацию, если при таком же спросе и предложении установится цена ниже равновесной:
+                            <LineBreak/>
+                            <Image Source="images/marketTheme/badMarketThings.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Тогда ВЕЛИЧИНА спроса будет большой (конечно, ведь за такую маленькую цену товар будут хотеть купить множество людей), а ВЕЛИЧИНА предложения – маленькой, потому что продавцы не хотят продавать товар по такой низкой цене. Возникает дефицит – все хотят купить товар, но его количество очень ограничено, на всех в этой ситуации не хватит.
+                            <LineBreak/>
+                            <Run Text="    "/> В другой же стороны, цена может установиться слишком высокой:
+                            Итак, из-за падения предложения при старой цене возникает дефицит, а значит цена растет. Покупатели в такой ситуации готовы купить меньше (снижается величина спроса), а продавцы – продать больше (растет величина предложения). В результате рынок достигает нового равновесия.
+                            <LineBreak/>
+                            <Run Text="    "/> В таком же случае, товар будет хотеть продать множество продавцов, потому что это им выгодно, но покупать его не захотят. Множество товара останется нераспроданным, и если в случае велосипедов это не так критично, то в случае скоропортящихся товаров это может стать серьезной проблемой для продавцов.  
+                            <LineBreak/>
+                            <Run Text="    "/> В последних двух случаях цена будет стремиться к равновесной – то есть при дефиците цена будет расти, чтобы спрос не был таким большим, а при избытке товаров, цена будет падать чтобы продавцы могли распродать свой товар.
+                            <LineBreak/>
+                            <Run Text="    "/> Если цена все время стремиться к равновесной, то при каких же условиях возможно отклонение от равновесного положение? Конечно, при изменении самого спроса или предложения (не их величин):
+                            <LineBreak/>
+                            <Image Source="images/marketTheme/marketChange.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>    
+                            <Run Text="    "/> Итак, из-за падения предложения при старой цене возникает дефицит, а значит цена растет. Покупатели в такой ситуации готовы купить меньше (снижается величина спроса), а продавцы – продать больше (растет величина предложения). В результате рынок достигает нового равновесия.
+                            
+                    </TextBlock>
+                    <Button x:Name="taskButton" Background="MintCream" Content="Далее" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="Пожалуйста, выберите буквенное обозначение для каждого термина:" MaxWidth="600"/>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Спрос" MaxWidth="600"/>
+                        <ComboBox Name="demand" Height="40" VerticalAlignment="Top">
+                            <TextBlock>D</TextBlock>
+                            <TextBlock>S</TextBlock>
+                            <TextBlock>P</TextBlock>
+                            <TextBlock>Q(d)</TextBlock>
+                            <TextBlock>Q(s)</TextBlock>
+                            <TextBlock>I</TextBlock>
+                            <TextBlock>TR</TextBlock>
+                        </ComboBox>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="2) Доход" MaxWidth="600"/>
+                        <ComboBox Name="income" Height="40" VerticalAlignment="Top">
+                            <TextBlock>D</TextBlock>
+                            <TextBlock>S</TextBlock>
+                            <TextBlock>P</TextBlock>
+                            <TextBlock>Q(d)</TextBlock>
+                            <TextBlock>Q(s)</TextBlock>
+                            <TextBlock>I</TextBlock>
+                            <TextBlock>TR</TextBlock>
+                        </ComboBox>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="3) Величина спроса" MaxWidth="600"/>
+                        <ComboBox Name="quantDem" Height="40" VerticalAlignment="Top">
+                            <TextBlock>D</TextBlock>
+                            <TextBlock>S</TextBlock>
+                            <TextBlock>P</TextBlock>
+                            <TextBlock>Q(d)</TextBlock>
+                            <TextBlock>Q(s)</TextBlock>
+                            <TextBlock>I</TextBlock>
+                            <TextBlock>TR</TextBlock>
+                        </ComboBox>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="4) Предложение" MaxWidth="600"/>
+                        <ComboBox Name="supply" Height="40" VerticalAlignment="Top">
+                            <TextBlock>D</TextBlock>
+                            <TextBlock>S</TextBlock>
+                            <TextBlock>P</TextBlock>
+                            <TextBlock>Q(d)</TextBlock>
+                            <TextBlock>Q(s)</TextBlock>
+                            <TextBlock>I</TextBlock>
+                            <TextBlock>TR</TextBlock>
+                        </ComboBox>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="5) Цена" MaxWidth="600"/>
+                        <ComboBox Name="price" Height="40" VerticalAlignment="Top">
+                            <TextBlock>D</TextBlock>
+                            <TextBlock>S</TextBlock>
+                            <TextBlock>P</TextBlock>
+                            <TextBlock>Q(d)</TextBlock>
+                            <TextBlock>Q(s)</TextBlock>
+                            <TextBlock>I</TextBlock>
+                            <TextBlock>TR</TextBlock>
+                        </ComboBox>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="6) Общая выручка" MaxWidth="600"/>
+                        <ComboBox Name="tr" Height="40" VerticalAlignment="Top">
+                            <TextBlock>D</TextBlock>
+                            <TextBlock>S</TextBlock>
+                            <TextBlock>P</TextBlock>
+                            <TextBlock>Q(d)</TextBlock>
+                            <TextBlock>Q(s)</TextBlock>
+                            <TextBlock>I</TextBlock>
+                            <TextBlock>TR</TextBlock>
+                        </ComboBox>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="7) Величина предложения" MaxWidth="600"/>
+                        <ComboBox Name="quantSup" Height="40" VerticalAlignment="Top">
+                            <TextBlock>D</TextBlock>
+                            <TextBlock>S</TextBlock>
+                            <TextBlock>P</TextBlock>
+                            <TextBlock>Q(d)</TextBlock>
+                            <TextBlock>Q(s)</TextBlock>
+                            <TextBlock>I</TextBlock>
+                            <TextBlock>TR</TextBlock>
+                        </ComboBox>
+
+
+                        <Button x:Name="readyButton" Background="MintCream" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

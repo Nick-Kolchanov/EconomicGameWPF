@@ -1,0 +1,230 @@
+﻿<UserControl x:Class="EconomicGameWPF.MinigameOpportunityСosts"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" Background="MintCream" MaxHeight="60" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                    <TextBlock Margin="25 25 25 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Text="Альтернативные издержки"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run Text="    "/> С необходимостью выбора связан термин "альтернативные издержки".
+                            <LineBreak/>
+                            <Run Text="    "/> Альтернативные издержки - это ценность наилучшей из альтернатив, от которой вы отказались, сделав данный выбор.
+                            <LineBreak/>
+                            <Run Text="    "/> Предположим, у вас есть час времени, и потратить его мы можете так (действия расположены по приоритету):
+                            <LineBreak/>
+                            <Run Text="    "/> 1) Спать; 2) Общаться с друзьями; 3) Учиться; 4) Играть в игры.
+                            <LineBreak/>
+                            <Run Text="    "/> Тогда альтернативными издержками решения потратить это час на учебу будет отказ от сна, а альтернативными издержками решения потратить это час на сон будет отказ от общения.
+                            <LineBreak/>
+                            <Run Text="    "/> Но приоритеты могут быть разными, тогда будут разными и альтернативные издержки.
+                            <LineBreak/>
+                            <Run Text="    "/> Даже простое решение о том, где вы хотите поесть, приводит к неизбежным упущенным возможностям. Вы решаете пойти на ужин во французский ресторан вместо итальянского. Удовольствие от итальянской еды — альтернативная цена этого решения.
+                            <LineBreak/>
+                            <Run Text="    "/> Хотя вы можете быть удовлетворены трапезой во французском ресторане, даже больше, чем в итальянском, вы все равно пропустите хорошую еду и приятные впечатления.
+                            <LineBreak/>
+                            <Run Text="    "/> Над альтернативными издержками задумываются и в бизнес сфере. Например, в 90-е, когда появилась возможность построить казино, то под него перестроили старый кинотеатр. Решение основывалось на том, что альтернативные издержки оставления обычного кинотеатра были слишком высоки - казино могло приносить намного больше прибыли.
+                    </TextBlock>
+                    <Image Source="images/opportunityCostTheme/opportunity_cost.jpg" Margin="30" MaxWidth="600" HorizontalAlignment="Center"/>
+                    <Button x:Name="taskButton" Background="MintCream" Content="К заданию" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="Проверим вашу интуицию. Предлагается ситуация: выбор между покупкой и арендой квартиры. Условия представлены ниже. Что вы выберете?" MaxWidth="600"/>
+                        <Grid MaxWidth="900">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                                <TextBlock Margin="25">
+                                    Купить квартиру
+                                </TextBlock>
+                                <TextBlock Margin="25">
+                                    5 000 000 руб.
+                                </TextBlock>
+                            </StackPanel>
+
+                            <GridSplitter Grid.Column="3"  Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="Gray"/>
+
+                            <StackPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2">
+                                <TextBlock Margin="25">
+                                    Снять квартиру
+                                </TextBlock>
+                                <TextBlock x:Name="rentTextBlock" Margin="25">
+                                    240 000 руб/г.
+                                </TextBlock>
+                            </StackPanel>
+
+                            <GridSplitter Grid.Row="1"  Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray"/>
+
+                            <TextBlock x:Name="buyWithBankTextBlock" Grid.Row="2" Margin="25" TextWrapping="Wrap">
+                                    Занять под 10% годовых
+                            </TextBlock>
+
+                            <GridSplitter Grid.Row="2" Grid.Column="1"  VerticalAlignment="Stretch" Margin="15" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="Gray"/>
+
+                            <TextBlock x:Name="buyYourselfTextBlock" Grid.Row="2" Grid.Column="2" Margin="25" TextWrapping="Wrap" >
+                                    Купить за свои (хотя есть вклад в банке под 4%)
+                            </TextBlock>
+                        </Grid>
+
+                        <StackPanel HorizontalAlignment="Center">
+                            <RadioButton x:Name="buyWithBankRadioButton" Content="Занять под 10% годовых" Margin="10" Checked="RadioButton_Checked"/>
+                            <RadioButton x:Name="buyYourselfRadioButton" Content="Купить за свои" Margin="10" Checked="RadioButton_Checked"/>
+                            <RadioButton x:Name="rentRadioButton" Content="Снять квартиру" Margin="10" Checked="RadioButton_Checked"/>
+                        </StackPanel>
+
+                        <TextBlock x:Name="resultTextBlock" Margin="25" TextWrapping="Wrap" MaxWidth="500"/>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="Теперь давайте проверим, как вы поняли концепкию альтернативных издержек, выберите все верные утверждения:" MaxWidth="600"/>
+
+                        <StackPanel HorizontalAlignment="Center" MaxWidth="600">
+                            <CheckBox x:Name="checkBox1" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Альтернативные издержки обязательно измеряются в денежных единицах." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox2" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Для двух разных людей, делающих один и тот же выбор, как потратить час свободного времени, альтернативные издержки могут быть различными." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox3" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Если банки повышают проценты по вкладам, альтернативные издержки решения держать деньги дома в тумбочке могут увеличиться." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox4" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Проживая в собственной квартире, за которую никому не нужно платить арендную плату, вы тем не менее можете нести альтернативные издержки." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox5" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text=" Альтернативные издержки – это сугубо теоретическая концепция и в реальной жизни они оказывают малое влияние на поведение и выбор потребителей или производителей." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="25">
+                            <TextBlock TextWrapping="Wrap" Margin="35" Text="И еще немного вопросов:" MaxWidth="600"/>
+                            <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Человек имел выбор, положить деньги в банк, потратить их на развлечения или использовать в благотворительных целях – и выбрал последний вариант. Может ли такой выбор быть наилучшим (то есть связанным с наименьшими альтернативными издержками)?" MaxWidth="600"/>
+                            <StackPanel HorizontalAlignment="Center" MaxWidth="500" >
+                                <RadioButton x:Name="RadioButton11" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Никогда, так как в этом случае человек решается осязаемого денежного дохода" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton21" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Никогда, так как благосостояние человека в этом случае уменьшается" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton31" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Однозначно да, так как в этом случае человек делает доброе дело" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton41" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Может быть да, а может быть - нет, это зависит от конкретного человека" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackPanel>
+
+                            <TextBlock TextWrapping="Wrap" Margin="25" Text="2) Законопослушный студент Олег хочет посмотреть два фильма, которые совсем недавно показывались в кинотеатрах: боевик и комедию. После того как он уже купил один DVD-диск с боевиком, он решил, что оставшуюся сумму денег потратит не на DVD, а на пельмени. Какие альтернативные издержки связаны с решением Олега купить пельмени?" MaxWidth="600"/>
+                            <StackPanel HorizontalAlignment="Center" MaxWidth="500" >
+                                <RadioButton x:Name="RadioButton12" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Деньги, которые он потратил на фильм с боевиком" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton22" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="DVD-диск с комедией, который он не купил" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton32" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Альтернативные издержки отсутствуют, поскольку изначально решение агента нерациональное, так как данные фильмы можно скачать бесплатно с торрента" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton42" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Нет верного ответа." TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackPanel>
+
+                            <TextBlock TextWrapping="Wrap" Margin="25" Text="3) Альтернативные издержки хранения денег в виде наличности:" MaxWidth="600"/>
+                            <StackPanel HorizontalAlignment="Center" MaxWidth="500" >
+                                <RadioButton x:Name="RadioButton13" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Снижаются при увеличении процента по вкладам" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton23" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Растут при увеличении процента по вкладам" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton33" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Равны нулю, так как деньги не являются фактором производства" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton43" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Определить нельзя, так как к деньгам вообще нельзя применить принцип альтернативной стоимости" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button Background="MintCream" x:Name="readyButton" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

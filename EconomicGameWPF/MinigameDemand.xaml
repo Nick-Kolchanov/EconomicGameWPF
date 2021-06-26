@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="EconomicGameWPF.MinigameDemand"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" MaxHeight="60" Background="MintCream" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                    <TextBlock Margin="25 25 25 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Text="Спрос и его величина"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run Text="    "/> Для начала познакомимся с новыми обозначениями, множество из них произошли от английских слов. Они очень полезны, есть смысл их выучить.
+                            <LineBreak/>
+                            <Image Source="images/demandTheme/lettersMeaning.jpg" MaxWidth="800" Margin="30"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Кроме того, недавно вы познакомились с таким понятием, как график. Теперь мы снова будем использовать это на практике! Возможно, вы уже слышали о таких явлениях как спрос и предложение. Это базовые понятия для микроэкономики. Спрос – это зависимость количества блага, которое покупатели готовы купить от цены (в данный момент, при прочих равных условиях). Так как это зависимость, спрос легко представить на графике:
+                            <LineBreak/>
+                            <Image Source="images/demandTheme/demandGraph.png" MaxWidth="400" Margin="30"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Что же конкретно означает этот график? То, что за 500 рублей за книгу в данный момент найдутся 200 покупателей, а за 100 рублей – уже 1000 покупателей.
+                            <LineBreak/>
+                            <Run Text="    "/> Эта зависимость очень помогает в анализе различных явлений, в том числе в связке с предложением, до которого мы скоро дойдем.
+                            <LineBreak/>
+                            <Run Text="    "/> Заметьте, что важно различать спрос и величину спроса. Спрос – сама зависимость, это именно то, что изображено на графике. Так меняется спрос:
+                            <LineBreak/>
+                            <Image Source="images/demandTheme/demandChange.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> То есть за любую цену покупать станут меньше. Изменение же величины спроса зависит лишь от цены, и показывает изменение количество покупателей от конкретной установленной цены:
+                            <LineBreak/>
+                            <Image Source="images/demandTheme/demandValueChange.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Итак, величина спроса может поменяться только из-за изменения цены. Из-за чего же может поменяться сам спрос? Причин множество:
+                            <LineBreak/>
+                            <Run Text="    "/> 1) Изменение доходов покупателей (если люди станут зарабатывать больше, то спрос на некоторые товары увеличится – например, на квартиры или дорогие телефоны (это называется нормальными товарами), а на другие товары спрос уменьшится – например, на лапшу быстрого приготовления (это называется инфериорными товарами));
+                            <LineBreak/>
+                            <Run Text="    "/> 2) Изменения спроса благ-заменителей (субститутов – конкурирующих благ, например, смартфоны разных производителей) и благ-дополнителей (комплементов – совместных благ, например, кино и попрокн, машина и бензин);
+                            <LineBreak/>
+                            <Run Text="    "/> 3) Информация о данном товаре (рекламная кампания, рецензии в интернете);
+                            <LineBreak/>
+                            <Run Text="    "/> 4) Изменения вкусов, обычаев, моды;
+                            <LineBreak/>
+                            <Run Text="    "/> 5) Сезонность; 
+                            <LineBreak/>
+                            <Run Text="    "/> 6) Ожидания покупателей – ожидаемый в будущем рост цен на товар или изменение доходов; 
+                            <LineBreak/>
+                            <Run Text="    "/> 7) Увеличение количества покупателей.
+                        
+                    </TextBlock>
+                    <Button x:Name="taskButton" Background="MintCream" Content="Далее" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+                        <TextBlock Text="Поместите товары в правильную колонку:" Margin="25" HorizontalAlignment="Center"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderBrush="Gray" Background="LightGray" BorderThickness="2" AllowDrop="True" Drop="SubstPanel_Drop" DragEnter="SubstPanel_DragEnter">
+                                <StackPanel x:Name="SubstPanel" MinHeight="300" AllowDrop="True">
+                                    <TextBlock Text="Субституты" Margin="10" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Grid.Column="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" AllowDrop="True" Drop="SubstPanel_Drop" DragEnter="SubstPanel_DragEnter">
+                                <StackPanel x:Name="ComplPanel">
+                                    <TextBlock Text="Комплементы" Margin="10" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+
+
+                            <WrapPanel x:Name="WrapPanelImages" Orientation="Horizontal" Margin="25" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" MaxWidth="800">
+                                <Image x:Name="compl1" Source="images/demandTheme/compl1.png" Margin="30" MaxWidth="300" MouseDown="Image_MouseDown"/>
+                                <Image x:Name="subst1" Source="images/demandTheme/subst1.png" Margin="30" MaxWidth="300" MouseDown="Image_MouseDown"/>
+                                <Image x:Name="subst2" Source="images/demandTheme/subst2.png" Margin="30" MaxWidth="300" MouseDown="Image_MouseDown"/>
+                                <Image x:Name="subst3" Source="images/demandTheme/subst3.png" Margin="30" MaxWidth="300" MouseDown="Image_MouseDown"/>
+                                <Image x:Name="compl2" Source="images/demandTheme/compl2.png" Margin="30" MaxWidth="300" MouseDown="Image_MouseDown"/>
+                                <Image x:Name="compl3" Source="images/demandTheme/compl3.png" Margin="30" MaxWidth="300" MouseDown="Image_MouseDown"/>
+                            </WrapPanel>
+                        </Grid>
+
+
+
+                        <Button x:Name="readyButton" Background="MintCream" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

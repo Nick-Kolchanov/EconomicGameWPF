@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DCFD5B8B-821F-4BBE-8C97-59D89C9FE9D7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EconomicGameWPF</RootNamespace>
+    <AssemblyName>EconomicGameWPF</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="MinigameMarket.xaml.cs">
+      <DependentUpon>MinigameMarket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MinigameSupply.xaml.cs">
+      <DependentUpon>MinigameSupply.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MinigameDemand.xaml.cs">
+      <DependentUpon>MinigameDemand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MinigameSystemTypes.xaml.cs">
+      <DependentUpon>MinigameSystemTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MinigameOpportunityСosts.xaml.cs">
+      <DependentUpon>MinigameOpportunityСosts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainUC.xaml.cs">
+      <DependentUpon>MainUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MinigameMarket.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MinigameSupply.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MinigameDemand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MinigameSystemTypes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MinigameOpportunityСosts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Minigame1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Minigame1.xaml.cs">
+      <DependentUpon>Minigame1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\exit.png" />
+    <Resource Include="images\load.png" />
+    <Resource Include="images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SavedData\settings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SavedData\save.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\firstTheme\choiceEconomic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\opportunityCostTheme\opportunity_cost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\firstTheme\consultant.png" />
+    <Resource Include="images\firstTheme\ford.png" />
+    <Resource Include="images\firstTheme\plane.png" />
+    <Resource Include="images\firstTheme\sea.png" />
+    <Resource Include="images\firstTheme\someInsudtrialThings.png" />
+    <Resource Include="images\firstTheme\teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\firstTheme\windEnergy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\systemTypesTheme\oldFarming.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\systemTypesTheme\leninFarm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\systemTypesTheme\ephiopia.jpg" />
+    <Resource Include="images\systemTypesTheme\thirdWorld.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\systemTypesTheme\cuba.jpg" />
+    <Resource Include="images\systemTypesTheme\northKorea.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\systemTypesTheme\hongKong.jpg" />
+    <Resource Include="images\systemTypesTheme\singapore.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\demandTheme\compl1.png" />
+    <Resource Include="images\demandTheme\compl2.png" />
+    <Resource Include="images\demandTheme\compl3.png" />
+    <Resource Include="images\demandTheme\demandChange.png" />
+    <Resource Include="images\demandTheme\demandGraph.png" />
+    <Resource Include="images\demandTheme\demandValueChange.png" />
+    <Resource Include="images\demandTheme\lettersMeaning.jpg" />
+    <Resource Include="images\demandTheme\subst1.png" />
+    <Resource Include="images\demandTheme\subst2.png" />
+    <Resource Include="images\demandTheme\subst3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\supplyTheme\supplyChange.png" />
+    <Resource Include="images\supplyTheme\supplyGraph.png" />
+    <Resource Include="images\supplyTheme\supplyValueChange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\marketTheme\badMarketThings.png" />
+    <Resource Include="images\marketTheme\equilibrium.png" />
+    <Resource Include="images\marketTheme\marketChange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\road.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\economicBackground.jpg" />
+    <Resource Include="Media\music.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

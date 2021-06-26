@@ -1,0 +1,197 @@
+﻿<UserControl x:Class="EconomicGameWPF.MinigameSupply"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" MaxHeight="60" Background="MintCream" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                    <TextBlock Margin="25 25 25 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Text="Предложение и его величина"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run Text="    "/> По аналогии со спросом, предложение – это зависимость. Только в этот раз – зависимость количества блага, которое продавцы готовы продать от цены (в данный момент, при прочих равных условиях). То есть за 400 руб/ч все няни в сумме могут предложить работу 30 тыс. часов/нед. За другую цену, няни предлагают другой объем работ.
+                            <LineBreak/>
+                            <Image Source="images/supplyTheme/supplyGraph.png" MaxWidth="400" Margin="30"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Величина предложения – это конкретное количество блага, которое продавцы готовы продать при данной конкретной цене. То есть какой-то определенный объем работ предлагают только за конкретную цену.
+                            <LineBreak/>
+                            <Image Source="images/supplyTheme/supplyChange.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Image Source="images/supplyTheme/supplyValueChange.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Как и со спросом, изменение величины предложения – только в результате изменения цены, а изменение предложения – в результате действия любого другого фактора предложения кроме цены, например:
+                            <LineBreak/>
+                            <Run Text="    "/> 1) Технологические изменения; 
+                            <LineBreak/>
+                            <Run Text="    "/> 2) Изменение доступности и/или цены ресурсов, необходимых для производства; 
+                            <LineBreak/>
+                            <Run Text="    "/> 3) Государственная политика (например, налогообложение и субсидирование); 
+                            <LineBreak/>
+                            <Run Text="    "/> 4) Погодные условия (например, урожайный год на рынке сельхозпродукции); 
+                            <LineBreak/>
+                            <Run Text="    "/> 5) Ожидания продавцов; 
+                            <LineBreak/>
+                            <Run Text="    "/> 6) Количество продавцов, сговор между ними. 
+                        
+                    </TextBlock>
+                    <Button x:Name="taskButton" Background="MintCream" Content="Далее" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="Пожалуйста, ответьте на вопросы:" MaxWidth="600"/>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Что произойдет с бензином, если цена на автомобили упадет?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton11" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton12" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton13" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton14" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="2) Что произойдет с поп-ит, если он станет менее модным?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton21" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton22" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton23" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton24" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="3) Что произойдет с шариковыми ручками, если государство введет налог на них для производителей?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton31" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton32" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton33" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton34" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="4) Что произойдет с айфонами, если доходы населения вырастут?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton41" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton42" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton43" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton44" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="5) Что произойдет с роликами, если на заводах введут улучшенные технологии производства?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton51" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton52" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Спрос уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton53" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение увеличится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton54" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Предложение уменьшится" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Button x:Name="readyButton" Background="MintCream" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

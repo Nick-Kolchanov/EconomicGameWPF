@@ -1,0 +1,59 @@
+﻿<Window x:Class="EconomicGameWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EconomicGameWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="1200" Height="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <DockPanel Style="{StaticResource TextFont}">
+            <Menu DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MaxHeight="30" Background="Transparent">
+                <MenuItem Click="LoadMenuItem_Click">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="images\load.png" Margin="0 5 10 5"></Image>
+                            <TextBlock VerticalAlignment="Center">Загрузить</TextBlock>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="SaveMenuItem_Click">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="images\save.png" Margin="0 5 10 5"></Image>
+                            <TextBlock VerticalAlignment="Center">Сохранить</TextBlock>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="ExitMenuItem_Click">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="images\exit.png" Margin="0 5 10 5"></Image>
+                            <TextBlock VerticalAlignment="Center">Выход</TextBlock>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+                <Separator Width="1">
+                    <Separator.Template>
+                        <ControlTemplate>
+                            <Border BorderThickness="2" BorderBrush="Gray"/>
+                        </ControlTemplate>
+                    </Separator.Template>
+                </Separator>
+                <MenuItem Click="ResetMenuItem_Click">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="images\reset.png" Margin="0 5 10 5"></Image>
+                            <TextBlock VerticalAlignment="Center">Сброс прогресса</TextBlock>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+            </Menu>
+
+            <ContentPresenter x:Name="OutputView" Height="740" Width="1190"/>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="EconomicGameWPF.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EconomicGameWPF"
+        mc:Ignorable="d"
+        Title="Settings" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Background="Azure">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Style="{StaticResource TextFont}">
+            <TextBlock Text="Настройки" HorizontalAlignment="Center" FontSize="50" Margin="0 10 0 20"/>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
+                <TextBlock>Музыка</TextBlock>
+                <CheckBox x:Name="MusicCheckBox" VerticalAlignment="Center" Margin="10" Checked="MusicCheckBox_Checked" Unchecked="MusicCheckBox_Unchecked"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
+                <TextBlock>Темная тема</TextBlock>
+                <CheckBox x:Name="OtherCheckBox" VerticalAlignment="Center" Margin="10" Checked="OtherCheckBox_Checked"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <TextBlock>Увеличенная <LineBreak/> сложность</TextBlock>
+                <CheckBox x:Name="OneMoreCheckBox" VerticalAlignment="Center" Margin="10" Checked="OneMoreCheckBox_Checked"></CheckBox>
+            </StackPanel>
+            <Button x:Name="BackButton" Content="Назад" Margin="10 25 10 0" Click="BackButton_Click" IsDefault="True" IsCancel="True" Background="MintCream"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="EconomicGameWPF.MinigameSystemTypes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" Background="MintCream" MaxHeight="60" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                    <TextBlock Margin="25 25 25 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Text="Типы экономических систем"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run Text="    "/> Существует три вопроса, на которые глобально отвечает и конкретная фирма, и иногда ответы на них влияют на экономику страны в целом. Их называют «Три вопроса экономики»:
+                            <LineBreak/>
+                            <Run Text="    "/> 1) Что производить?
+                            <LineBreak/>
+                            <Run Text="    "/> 2) Как производить?
+                            <LineBreak/>
+                            <Run Text="    "/> 3) Для кого производить?
+                            <LineBreak/>
+                            <Run Text="    "/> В частности, в традиционной экономической системе на эти вопросы отвечают традиции (производим овес, потому что так отцы наши делали, производим с помощью плуга, потому что так всегда делали).
+                            <LineBreak/>
+                            <Image Source="images/systemTypesTheme/oldFarming.jpeg" Margin="30" MaxWidth="600" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> При командной экономике на эти вопросы отвечают в главном центре – в государстве.
+                            <LineBreak/>
+                            <Image Source="images/systemTypesTheme/leninFarm.jpg" Margin="30" MaxWidth="600" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> В рыночной же экономике каждый предприниматель отвечает на них сам, абсолютно без вмешательства государства.
+                            <LineBreak/>
+                            <Run Text="    "/> Часто в нашем мире встречается смешанная экономика – в таких странах государство вмешивается в экономику, но не полностью, а только корректирует что-либо.
+                            <LineBreak/>
+                            <Run Text="    "/> Посмотрим на примеры стран с разными экономическими системами:
+                    </TextBlock>
+                    <Button x:Name="taskButton" Background="MintCream" Content="Далее" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+                        <TabControl MaxWidth="1000" Background="Azure">
+                            <TabItem Header="Традиционная" Background="MintCream">
+                                <StackPanel Margin="25">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="images/systemTypesTheme/ephiopia.jpg" MaxHeight="350" Margin="10"/>
+                                        <Image Source="images/systemTypesTheme/thirdWorld.jpg" MaxHeight="350" Margin="10"/>
+                                    </StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" Text="Многие страны третьего мира и отдаленные уголки Африки"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="Командная" Background="MintCream">
+                                <StackPanel Margin="25" Orientation="Horizontal">
+                                    <StackPanel>
+                                        <Image Source="images/systemTypesTheme/cuba.jpg" MaxHeight="300" Margin="10"/>
+                                        <TextBlock HorizontalAlignment="Center" Text="Куба"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Image Source="images/systemTypesTheme/northKorea.jpg" MaxHeight="300" Margin="10"/>
+                                        <TextBlock HorizontalAlignment="Center" Text="Северная Корея"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="Рыночная" Background="MintCream">
+                                <StackPanel Margin="25" Orientation="Horizontal">
+                                    <StackPanel>
+                                        <Image Source="images/systemTypesTheme/hongKong.jpg" MaxHeight="300" Margin="10"/>
+                                        <TextBlock HorizontalAlignment="Center" Text="Гонконг"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Image Source="images/systemTypesTheme/singapore.jpg" MaxHeight="300" Margin="10"/>
+                                        <TextBlock HorizontalAlignment="Center" Text="Сингапур"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="Смешанная" Background="MintCream">
+                                <StackPanel Margin="25">
+                                    <StackPanel x:Name="popupParent">
+                                        <TextBlock Text="Командная"/>
+                                        <Slider Interval="1000"  x:Name="slider1" ValueChanged="Slider_ValueChanged" ToolTip="Пока что ничего" Value="0" Minimum="0" Maximum="100"/>
+                                        <Popup x:Name="popup1" IsOpen="False" Placement="Relative" HorizontalOffset="0" VerticalOffset="0" PlacementTarget="{Binding ElementName=popupParent}" MaxWidth="180" AllowsTransparency="True"  >
+                                            <TextBlock x:Name="popup1text" Background="LightGray" Width="180" Opacity="0.8"/>
+                                        </Popup>
+                                        <TextBlock Text="Рыночная" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                    <TextBlock Text="Распределение стран со смешанной экономикой"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+
+
+
+                        <Button x:Name="readyButton" Background="MintCream" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

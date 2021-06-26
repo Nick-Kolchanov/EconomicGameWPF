@@ -1,0 +1,21 @@
+﻿<Window x:Class="EconomicGameWPF.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EconomicGameWPF"
+        mc:Ignorable="d"
+        Title="Menu"  Width="1200" Height="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="images/economicBackground.jpg" Opacity="0.9"/>
+    </Window.Background>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Style="{StaticResource TextFont}">
+            <TextBlock Text="Экономическая игра!" FontSize="50" Margin="0 50 0 50" Style="{x:Null}" Foreground="Linen"/>
+            <Button Content="Начать!" Click="StartButton_Click" Margin="0 30 0 30" MaxWidth="350" IsDefault="True" Background="MintCream" Opacity="0.85"/>
+            <Button Content="Настройки" Click="SettingsButton_Click" Margin="0 30 0 30" MaxWidth="350" Background="MintCream" Opacity="0.85"/>
+            <Button Content="Об авторах" Click="AuthorsButton_Click" Margin="0 30 0 30" MaxWidth="350" Background="MintCream" Opacity="0.85"/>
+            <Button Content="Выход" Click="ExitButton_Click" Margin="0 30 0 30" MaxWidth="350" IsCancel="True" Background="MintCream" Opacity="0.85"/>
+        </StackPanel>
+    </Grid>
+</Window>
