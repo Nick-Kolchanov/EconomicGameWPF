@@ -63,8 +63,10 @@
                 <Button x:Name="fourth" Content="4" Style="{StaticResource test}" Margin="485,236,385,454" />
                 <Button x:Name="fifth" Content="5" Style="{StaticResource test}" Margin="319,236,551,454" />
                 <Button x:Name="sixth" Content="6" Style="{StaticResource test}" Margin="151,236,719,454" />
-                <Button x:Name="patch" Content="7" Style="{StaticResource test}" Margin="151,404,719,286" />
-                <Button x:Name="dlc" Content="8" Style="{StaticResource test}" Margin="319,404,551,286" />
+                <Button x:Name="seventh" Content="7" Style="{StaticResource test}" Margin="151,404,719,286" />
+                <Button x:Name="eighth" Content="8" Style="{StaticResource test}" Margin="319,404,551,286" />
+                <Button x:Name="patch" Content="9" Style="{StaticResource test}" Margin="485,404,385,286" />
+                <Button x:Name="dlc" Content="10" Style="{StaticResource test}" Margin="616,482,254,208" />
             </Grid>
         </StackPanel>
         <DockPanel Style="{StaticResource TextFont}" Grid.Column="1" LastChildFill="True" HorizontalAlignment="Stretch">

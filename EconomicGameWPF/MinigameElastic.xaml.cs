@@ -18,11 +18,11 @@ namespace EconomicGameWPF
     /// <summary>
     /// Логика взаимодействия для Minigame1.xaml
     /// </summary>
-    public partial class MinigameSupply : UserControl
+    public partial class MinigameElastic : UserControl
     {
         public event ChangeUCEvent ChangeUCClick;
 
-        public MinigameSupply()
+        public MinigameElastic()
         {
             InitializeComponent();
             taskBox.Visibility = Visibility.Collapsed;
@@ -43,15 +43,15 @@ namespace EconomicGameWPF
         {
             var cnt = 0;
 
-            if ((bool)radioButton11.IsChecked)
+            if ((bool)radioButton12.IsChecked)
                 cnt++;
-            if ((bool)radioButton22.IsChecked)
+            if ((bool)radioButton21.IsChecked)
                 cnt++;
-            if ((bool)radioButton34.IsChecked)
+            if ((bool)radioButton32.IsChecked)
                 cnt++;
-            if ((bool)radioButton41.IsChecked)
+            if ((bool)radioButton43.IsChecked)
                 cnt++;
-            if ((bool)radioButton53.IsChecked)
+            if ((bool)radioButton51.IsChecked)
                 cnt++;
 
             if (cnt == 5)
@@ -61,7 +61,7 @@ namespace EconomicGameWPF
             else
                 MessageBox.Show($"Ваш результат = {cnt} из 5.");
 
-            ChangeUCClick?.Invoke(UCType.Main, 7);
+            ChangeUCClick?.Invoke(UCType.Main, 10);
         }
     }
 }

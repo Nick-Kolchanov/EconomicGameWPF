@@ -73,6 +73,12 @@
     <Compile Include="MinigameMarket.xaml.cs">
       <DependentUpon>MinigameMarket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MinigamePCC.xaml.cs">
+      <DependentUpon>MinigamePCC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MinigameElastic.xaml.cs">
+      <DependentUpon>MinigameElastic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MinigameSupply.xaml.cs">
       <DependentUpon>MinigameSupply.xaml</DependentUpon>
     </Compile>
@@ -112,6 +118,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MinigameMarket.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MinigamePCC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MinigameElastic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -185,14 +199,10 @@
     <Resource Include="images\reset.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="SavedData\settings.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="SavedData\settings.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="SavedData\save.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="SavedData\save.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\firstTheme\choiceEconomic.png" />
@@ -269,6 +279,19 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\PCCTheme\1.png" />
+    <Resource Include="images\PCCTheme\2.png" />
+    <Resource Include="images\PCCTheme\3.png" />
+    <Resource Include="images\PCCTheme\4.png" />
+    <Resource Include="images\PCCTheme\main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ElasticTheme\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ElasticTheme\22.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

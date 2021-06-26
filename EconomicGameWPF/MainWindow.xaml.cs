@@ -22,10 +22,12 @@ namespace EconomicGameWPF
         Main,
         First,
         OpportunityCosts,
+        PCC,
         SystemTypes,
         Supply,
         Demand,
-        MarketEquillibrium
+        MarketEquillibrium,
+        Elastic
     }
     public delegate void ChangeUCEvent(UCType type, int maxLevelInd = 0);
 
@@ -69,6 +71,11 @@ namespace EconomicGameWPF
                     minigameOC.ChangeUCClick += ChangeUserControl;
                     OutputView.Content = minigameOC;
                     break;
+                case UCType.PCC:
+                    MinigamePCC minigamePCC = new MinigamePCC();
+                    minigamePCC.ChangeUCClick += ChangeUserControl;
+                    OutputView.Content = minigamePCC;
+                    break;
                 case UCType.SystemTypes:
                     MinigameSystemTypes minigameST = new MinigameSystemTypes();
                     minigameST.ChangeUCClick += ChangeUserControl;
@@ -88,6 +95,11 @@ namespace EconomicGameWPF
                     MinigameMarket minigameM = new MinigameMarket();
                     minigameM.ChangeUCClick += ChangeUserControl;
                     OutputView.Content = minigameM;
+                    break;
+                case UCType.Elastic:
+                    MinigameElastic minigameE = new MinigameElastic();
+                    minigameE.ChangeUCClick += ChangeUserControl;
+                    OutputView.Content = minigameE;
                     break;
             }
         }
@@ -147,7 +159,12 @@ namespace EconomicGameWPF
 
         private void ResetMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            ChangeUserControl(UCType.Main, 1);
+            maxLevelInd = 1;
+            using (StreamWriter sw = new StreamWriter(Application.Current.Resources["SaveDir"].ToString(), false))
+            {
+                sw.WriteLine(maxLevelInd);
+            }
+            ChangeUserControl(UCType.Main);
         }
     }
 

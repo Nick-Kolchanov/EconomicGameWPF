@@ -1,0 +1,197 @@
+﻿<UserControl x:Class="EconomicGameWPF.MinigamePCC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" Background="MintCream" MaxHeight="60" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                    <TextBlock Margin="25 25 25 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Text="Кривая производственных возможностей и международная торговля"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run Text="    "/>В экономике есть такая вещь, которая называется кривая производственных возможностей. Разберем ее на примере, чтобы было понятнее.
+                            <LineBreak/>
+                            <Run Text="    "/> Допустим, на необитаемом острове живет Робинзон.
+                            <LineBreak/>
+                            <Image Source="images/PCCTheme/main.jpg" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Все, что он умеет делать – это ловить рыбу и собирать кокосы. Поскольку в сутках только 24 часа, а ему еще и нужно спать, то он не может собрать за день бесконечное количество кокосов или наловить бесконечное количество рыбы. 
+                            <LineBreak/>
+                            <Run Text="    "/> Предположим, что если он будет весь день собирать кокосы, то сможет собрать 40 штук. А если будет весь день ловить рыбу, то поймает 8 штуки. Разумеется, он может одну половину дня собирать кокосы, а вторую половину – ловить рыбу. Тогда он за день соберет не 40 кокосов, а только 20, потому что потратил только половину дня на сбор кокосов. Зато, помимо кокосов, у него будет еще и 4 рыбы, потому что вторую половину дня он ловил рыбу и поймал половину от того количества, сколько бы поймал, если бы рыбачил весь день.
+                            <LineBreak/>
+                            <Run Text="    "/> А что, если ему нужно только 10 кокосов, и когда он их соберет, то все остальное время хочет потратить на ловлю рыбы. Как узнать, сколько рыбы он поймает? Как раз для такой цели можно построить график.
+                            <LineBreak/>
+                            <Image Source="images/PCCTheme/1.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Здесь все просто. Слева направо показано количество кокосов, которое он может собрать за день. А снизу вверх – количество рыбы, которую может поймать. Отметим 2 точки: (0 кокосов, 8 рыб) и (40 кокосов, 0 рыб). Соединим эти точки линией. Получился график. Линии снизу и слева называются осями. Если на горизонтальной оси найти точку, соответствующую 20 кокосам и подняться вертикально вверх до нашей линии, то значение на вертикальной оси будет соответствовать количеству рыбы, которую он поймает, если соберет 20 кокосов. В данном примере он поймает 4 рыбы	
+                            <LineBreak/>
+                            <Run Text="    "/> Таким образом, кривая производственных возможностей демонстрирует все возможные комбинации двух продуктов, которые могут быть произведены при полном и эффективном использовании всех ресурсов.
+                            <LineBreak/>
+                            <Run Text="    "/> Теперь предположим, что Робинзон на острове живет не один, а на нем также живет Ребекка. За день она может собрать 50 кокосов или поймать 4 рыбы. Ее кривая производственных возможностей выглядит так:
+                            <LineBreak/>
+                            <Image Source="images/PCCTheme/2.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Если сравнить ее производительность с производительностью Робинзона, то можно заметить, что если они оба будут весь день собирать кокосы, то Ребекка соберет больше за день, а если оба будут ловить рыбу, то поймает больше Робинзон. Такое явление называется абсолютное превосходство. Ребекка превосходит Робинзона в собирании кокосов, а Робинзон Ребекку – в ловли рыбы. Лучше всего будет, если Ребекка весь день будет собирать кокосы, а Робинзон будет ловить рыбу. Потом они просто поменяются и в итоге каждый получит больше, чем мог бы получить сам. 	
+                            <LineBreak/>
+                            <Run Text="    "/> Всего на двоих у них будет 50 кокосов и 8 рыб. Они могут их по-разному поделить, например, поровну: каждому по 25 кокосов и 4 рыбы. Каждый из них получает больше, чем смог бы поймать и собрать сам. Если посмотреть на кривую производственных возможностей Робинзона, то можно заметить, что при ловле 4 рыб, он собрал бы только 20 кокосов, а благодаря Ребекки у него их 25. А Ребекка не собрала бы ни одного кокоса, если бы ловила 4 рыбы, а у нее их тоже 25. На самом деле они не делили кокосы и рыбу, они обменялись. Ребекка продала Робинзону 25 кокосов за 4 рыбы, либо наоборот, Робинзон продал Ребекке 4 рыбы за 25 кокосов.
+                            <LineBreak/>
+                            <Run Text="    "/> Разберем другую ситуацию. Робинзон так же за день собирает 40 кокосов или ловит 8 рыб, а Ребекка собирает 16 кокосов или ловит 4 рыбы. Их кривые производственных возможностей показаны ниже. 
+                            <LineBreak/>
+                            <Image Source="images/PCCTheme/3.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Image Source="images/PCCTheme/4.png" Margin="30" MaxWidth="400" HorizontalAlignment="Center"/>
+                            <LineBreak/>
+                            <Run Text="    "/> На первый взгляд кажется, что здесь не может быть никакой взаимной выгоды, давайте разбираться. Вы уже знакомы с понятием альтернативных издержек. Оценим их в этой ситуации. Когда Робинзон ловит 8 рыб, то он не собирает 40 кокосов. 40 кокосов в данном случае являются альтернативными издержками. Можно посчитать, что при ловле 1 рыбы альтернативные издержки равны 5 кокосам. У Ребекки при ловле 1 рыбы альтернативные издержки составляют 4 рыбы. Получается так, что Ребекка теряет меньше кокосов, чем Робинзон, при ловле 1 рыбы. Это называется относительным превосходством. Выгодно, чтобы Ребекка весь день потратила на ловлю рыбы. Робинзон может, к примеру, поймать 2 рыбы и собрать 30 кокосов.  	
+                            <LineBreak/>
+                            <Run Text="    "/> После этого Робинзон продаст Ребекке 9 кокосов за 2 рыбы. Итого: Ребекка (9 кокосов, 2 рыбы), Робинзон (21 кокос, 2 рыбы). Если бы Робинзон обходился без помощи Ребекки, то собрал бы только 20 кокосов при ловле 2 рыб, а Ребекка – собрала бы 8 кокосов при ловле 2 рыб. Каждый получил на 1 кокос больше, чем смог бы получить в одиночку.
+                            <LineBreak/>
+                            <Run Text="    "/> Получается, что торговля выгодна всем. Когда каждый делает то, что у него получается лучше всего, то от этого выгодно всем. 
+                            <LineBreak/>
+                        <LineBreak/>
+                            <Run Text="    "/> Давайте проверим, как вы поняли тему.
+                    </TextBlock>
+                    <Button x:Name="taskButton" Background="MintCream" Content="К заданию" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="Винни-Пух за один день может либо сочинить 10 стихотворений, либо полностью очистить от меда 20 горшочков. Пятачок за один день может либо сочинить 2 стихотворения, либо полностью очистить от меда 1 горшочек. Выберите все верные ответы: Выберите все верные утверждения:" MaxWidth="600"/>
+
+                        <StackPanel HorizontalAlignment="Center" MaxWidth="600">
+                            <CheckBox x:Name="checkBox1" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Винни-пух имеет абсолютное преимущество в написании стихов." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox2" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Пятачок имеет абсолютное преимущество в написании стихов." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox3" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Винни-пух имеет абсолютное преимущество в поедании меда." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox4" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Пятачок имеет абсолютное преимущество в поедании меда." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox5" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Винни-пух имеет сравнительное преимущество в написании стихов." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox6" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Пятачок имеет сравнительное преимущество в написании стихов." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox7" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Винни-пух имеет сравнительное преимущество в поедании меда." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            <CheckBox x:Name="checkBox8" Margin="10">
+                                <CheckBox.Content>
+                                    <TextBlock Text="Пятачок имеет сравнительное преимущество в поедании меда." TextWrapping="Wrap"/>
+                                </CheckBox.Content>
+                            </CheckBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="25">
+                            <TextBlock TextWrapping="Wrap" Margin="35" Text="И еще немного вопросов:" MaxWidth="600"/>
+                            <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Что такое кривая производственных возможностей?" MaxWidth="600"/>
+                            <StackPanel HorizontalAlignment="Center" MaxWidth="500" >
+                                <RadioButton x:Name="RadioButton11" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Количество рыбы, которое может поймать человек за день." TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton21" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="График, демонстрирующий все возможные комбинации двух продуктов, которые могут быть произведены при полном и эффективном использовании всех ресурсов." TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton31" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Вертикальная ось графика" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackPanel>
+
+                            <TextBlock TextWrapping="Wrap" Margin="25" Text="2) Относительное превосходство это" MaxWidth="600"/>
+                            <StackPanel HorizontalAlignment="Center" MaxWidth="500" >
+                                <RadioButton x:Name="RadioButton12" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Возможность производить больше товара" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton22" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Лучшие технологии производства, относительно других фирм" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton32" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Возможность производить товар с меньшими альтернативными издержками" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackPanel>
+
+                            <TextBlock TextWrapping="Wrap" Margin="25" Text="3) В чем преимущество международной торговли:" MaxWidth="600"/>
+                            <StackPanel HorizontalAlignment="Center" MaxWidth="500" >
+                                <RadioButton x:Name="RadioButton13" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Она бесконфликтная" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton23" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Она выгодна всем" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton x:Name="RadioButton33" Margin="10">
+                                    <RadioButton.Content>
+                                        <TextBlock Text="Странам легко заключать сделки при международной торговле" TextWrapping="Wrap"/>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button Background="MintCream" x:Name="readyButton" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

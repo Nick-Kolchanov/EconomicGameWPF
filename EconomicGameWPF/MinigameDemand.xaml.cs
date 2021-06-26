@@ -75,7 +75,7 @@ namespace EconomicGameWPF
             else
                 MessageBox.Show($"Ваш результат = {cnt} из 6.");
 
-            ChangeUCClick?.Invoke(UCType.Main, 5);
+            ChangeUCClick?.Invoke(UCType.Main, 6);
         }
 
         private void SubstPanel_Drop(object sender, DragEventArgs e)

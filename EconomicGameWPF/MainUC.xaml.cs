@@ -60,7 +60,7 @@ namespace EconomicGameWPF
                 return;
             }
 
-            if (levelInd > 6)
+            if (levelInd > 8)
                 playButton.IsEnabled = false;
             else
                 playButton.IsEnabled = true;
@@ -79,16 +79,22 @@ namespace EconomicGameWPF
                     ChangeUCClick?.Invoke(UCType.OpportunityCosts);
                     break;
                 case 3:
-                    ChangeUCClick?.Invoke(UCType.SystemTypes);
+                    ChangeUCClick?.Invoke(UCType.PCC);
                     break;
                 case 4:
-                    ChangeUCClick?.Invoke(UCType.Demand);
+                    ChangeUCClick?.Invoke(UCType.SystemTypes);
                     break;
                 case 5:
-                    ChangeUCClick?.Invoke(UCType.Supply);
+                    ChangeUCClick?.Invoke(UCType.Demand);
                     break;
                 case 6:
+                    ChangeUCClick?.Invoke(UCType.Supply);
+                    break;
+                case 7:
                     ChangeUCClick?.Invoke(UCType.MarketEquillibrium);
+                    break; 
+                case 8:
+                    ChangeUCClick?.Invoke(UCType.Elastic);
                     break;
             }
         }

@@ -73,7 +73,7 @@ namespace EconomicGameWPF
 
         private void ReadyButton_Click(object sender, RoutedEventArgs e)
         {
-            ChangeUCClick?.Invoke(UCType.Main, 4);
+            ChangeUCClick?.Invoke(UCType.Main, 5);
         }
     }
 }

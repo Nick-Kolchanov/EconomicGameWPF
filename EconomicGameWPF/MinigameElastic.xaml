@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="EconomicGameWPF.MinigameElastic"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EconomicGameWPF"
+             mc:Ignorable="d" 
+             Height="740" Width="1190"
+             Background="Azure">
+    <UserControl.Resources>
+        <Style x:Key="NewFontSize">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button MaxWidth="300" MaxHeight="60" Background="MintCream" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
+                
+                    <StackPanel MinWidth="300">
+                    <TextBlock Margin="25 25 25 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Text="Эластичность"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
+                            <Run Text="    "/> Если две величины численно измеримы и изменение одной (причина) приводит к изменению другой (следствию), то эластичность показывает, насколько сильно причина влияет на следствие. В экономике, к примеру, эластичность спроса по цене показывает, насколько сильно изменение цены влияет на изменение величины спроса.
+                            <LineBreak/>
+                            <Image Source="images/elasticTheme/21.png" MaxWidth="400" Margin="30"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Существуют несколько частоиспользуемых видов эластичности:
+                            <LineBreak/>
+                            <Run Text="    "/> 1) Эластичность спроса по цене; 
+                            <LineBreak/>
+                            <Run Text="    "/> 2) Эластичность предложения по цене; 
+                            <LineBreak/>
+                            <Run Text="    "/> 3) Эластичность спроса по доходу; 
+                            <LineBreak/>
+                            <Run Text="    "/> 4) Эластичность спроса на продукт А по цене продукта Б; 
+                            <LineBreak/>
+                            <Run Text="    "/> Рассмотрим величину эластичности: если она больше единицы – это высокая эластичность (эластичный спрос/предложение), если меньше единицы – низкая эластичность (неэластичный спрос/предложение). В частности, если эластичность спроса по доходу больше 1, благо относят к «предметам роскоши». Если эластичность спроса по доходу меньше 1, благо относят к «предметам 1ой необходимости». 
+                            <LineBreak/>
+                            <Run Text="    "/> Внимание: эта классификация применима только к нормальным товарам.
+                            <LineBreak/>
+                            <Run Text="    "/> Рассмотрим таблицу:
+                            <LineBreak/>
+                            <Image Source="images/elasticTheme/22.png" MaxWidth="600" Margin="30"/>
+                            <LineBreak/>
+                            <Run Text="    "/> Таблица показывает, что при повышении доходов людей, роллтон станут покупать меньше, а телефоны самсунг станут покупать больше. В данном случае, значение эластичности показывает, как насколько чаще будут покупать товар при увеличении доходов.
+                            <LineBreak/>
+
+                    </TextBlock>
+                    <Button x:Name="taskButton" Background="MintCream" Content="Далее" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                
+            </ScrollViewer>
+            
+
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
+                <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
+                    <StackPanel Margin="25">
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="Пожалуйста, ответьте на вопросы:" MaxWidth="600"/>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Какого знака эластичность спроса по цене?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton11" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Положительная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton12" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Отрицательная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton13" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Зависит от ситуации" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="2) Какого знака эластичность предложения по цене?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton21" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Положительная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton22" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Отрицательная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton23" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Зависит от ситуации" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="3) Какого знака эластичность спроса по доходу для инфериорных товаров?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton31" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Положительная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton32" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Отрицательная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton33" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Зависит от ситуации" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="4) Какого знака эластичность спроса на продукт А по цене продукта Б?" MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton41" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Положительная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton42" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Отрицательная" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton43" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Зависит от ситуации" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <TextBlock TextWrapping="Wrap" Margin="25" Text="5) При повышении доходов на 10 процентов, спрос на нормальный товар упал на 5 процетнтов." MaxWidth="600"/>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
+                            <RadioButton x:Name="radioButton51" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Низкая эластичность. Товар первой необходимости" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton52" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Низкая эластичность. Предмет роскоши" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton53" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Высокая эластичность. Товар первой необходимости" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton x:Name="radioButton54" Margin="10">
+                                <RadioButton.Content>
+                                    <TextBlock Text="Высокая эластичность. Предмет роскоши" TextWrapping="Wrap"/>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </WrapPanel>
+
+                        <Button x:Name="readyButton" Background="MintCream" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                    </StackPanel>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

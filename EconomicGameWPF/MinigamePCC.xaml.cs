@@ -18,11 +18,11 @@ namespace EconomicGameWPF
     /// <summary>
     /// Логика взаимодействия для Minigame1.xaml
     /// </summary>
-    public partial class MinigameSupply : UserControl
+    public partial class MinigamePCC : UserControl
     {
         public event ChangeUCEvent ChangeUCClick;
 
-        public MinigameSupply()
+        public MinigamePCC()
         {
             InitializeComponent();
             taskBox.Visibility = Visibility.Collapsed;
@@ -42,26 +42,37 @@ namespace EconomicGameWPF
         private void ReadyButton_Click(object sender, RoutedEventArgs e)
         {
             var cnt = 0;
+            if ((bool)checkBox1.IsChecked)
+                cnt++;
+            if (!(bool)checkBox2.IsChecked)
+                cnt++;
+            if ((bool)checkBox3.IsChecked)
+                cnt++;
+            if (!(bool)checkBox4.IsChecked)
+                cnt++;
+            if (!(bool)checkBox5.IsChecked)
+                cnt++;
+            if ((bool)checkBox6.IsChecked)
+                cnt++;
+            if ((bool)checkBox7.IsChecked)
+                cnt++;
+            if (!(bool)checkBox8.IsChecked)
+                cnt++;
+            if ((bool)RadioButton21.IsChecked)
+                cnt++;
+            if ((bool)RadioButton32.IsChecked)
+                cnt++;
+            if ((bool)RadioButton23.IsChecked)
+                cnt++;
 
-            if ((bool)radioButton11.IsChecked)
-                cnt++;
-            if ((bool)radioButton22.IsChecked)
-                cnt++;
-            if ((bool)radioButton34.IsChecked)
-                cnt++;
-            if ((bool)radioButton41.IsChecked)
-                cnt++;
-            if ((bool)radioButton53.IsChecked)
-                cnt++;
-
-            if (cnt == 5)
-                MessageBox.Show($"Ваш результат = {cnt} из 5. Отлично, молодец!");
-            else if (cnt > 2)
-                MessageBox.Show($"Ваш результат = {cnt} из 5. Неплохо");
+            if (cnt == 11)
+                MessageBox.Show($"Ваш результат = {cnt} из 11. Отлично, молодец!");
+            else if (cnt > 7)
+                MessageBox.Show($"Ваш результат = {cnt} из 11. Неплохо");
             else
-                MessageBox.Show($"Ваш результат = {cnt} из 5.");
+                MessageBox.Show($"Ваш результат = {cnt} из 11.");
 
-            ChangeUCClick?.Invoke(UCType.Main, 7);
+            ChangeUCClick?.Invoke(UCType.Main, 4);
         }
     }
 }
