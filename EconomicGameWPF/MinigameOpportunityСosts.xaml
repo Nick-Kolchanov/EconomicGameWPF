@@ -118,7 +118,7 @@
 
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="Теперь давайте проверим, как вы поняли концепкию альтернативных издержек, выберите все верные утверждения:" MaxWidth="600"/>
 
-                        <StackPanel HorizontalAlignment="Center" MaxWidth="600">
+                        <StackPanel x:Name="checkBoxPanel" HorizontalAlignment="Center" MaxWidth="600">
                             <CheckBox x:Name="checkBox1" Margin="10">
                                 <CheckBox.Content>
                                     <TextBlock Text="Альтернативные издержки обязательно измеряются в денежных единицах." TextWrapping="Wrap"/>
@@ -146,7 +146,7 @@
                             </CheckBox>
                         </StackPanel>
 
-                        <StackPanel Margin="25">
+                        <StackPanel x:Name="radioButtonsPanel" Margin="25">
                             <TextBlock TextWrapping="Wrap" Margin="35" Text="И еще немного вопросов:" MaxWidth="600"/>
                             <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Человек имел выбор, положить деньги в банк, потратить их на развлечения или использовать в благотворительных целях – и выбрал последний вариант. Может ли такой выбор быть наилучшим (то есть связанным с наименьшими альтернативными издержками)?" MaxWidth="600"/>
                             <StackPanel HorizontalAlignment="Center" MaxWidth="500" >

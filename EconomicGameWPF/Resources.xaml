@@ -9,6 +9,16 @@
         <Setter Property="TextBlock.FontSize" Value="40"/>
     </Style>
 
+    <Style TargetType="UserControl">
+        <Setter Property="Background" Value="Azure"/>
+    </Style>
+    
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="MintCream" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="BorderBrush" Value="Gray" />
+    </Style>
+
     <col:ArrayList x:Key="LevelsDescriptions">
         <sys:String>Что изучают экономисты?;Почему все люди не могут иметь дом, много еды и одежды? 
             Почему даже при идеальных условиях любой человек может потерять все свои деньги? 
@@ -22,11 +32,12 @@
         <sys:String>Рыночное равновесие;Анализируем информацию, полученную на прошлых уроках и пытаемся понять, как взаимодействуют спрос и предложение.</sys:String>
         <sys:String>Эластичность;Рассмотрим занимательные причинно-следственные связи.</sys:String>
         <sys:String>Следующие темы микроэкономики;Последствия вмешательства государства в экономику, предприятия и виды издержек, маржинальный анализ и рыночные структуры. Эти и некоторые дополнительные темы будут доступны с патчем 1.1.</sys:String>
-        <sys:String>Макроэкономика;Большая часть экономической теории, включающая в себя понятия ВВП, модель круговорота, безработицу, инфляцию и многое другое. Будет доступно в DLC "Макроэкономика". Скоро в открытом доступе. </sys:String>
+        <sys:String>Макроэкономика;Большая часть экономической теории, включающая в себя понятия ВВП, модель круговорота, безработицу, инфляцию и многое другое. Будет доступно в DLC "Макроэкономика". Скоро в открытом доступе.</sys:String>
         <sys:String>Тема;О чем урок</sys:String>
     </col:ArrayList>
 
     <sys:String x:Key="SaveDir">../../SavedData/save.txt</sys:String>
     <sys:String x:Key="SettingsDir">../../SavedData/settings.txt</sys:String>
+    <sys:String x:Key="StatsDir">../../SavedData/stats.dat</sys:String>
     
 </ResourceDictionary>

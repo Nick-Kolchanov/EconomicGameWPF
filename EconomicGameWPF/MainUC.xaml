@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EconomicGameWPF"
              mc:Ignorable="d" 
              d:DesignHeight="740" d:DesignWidth="1190"
-             Background="Azure">
+             Style="{StaticResource {x:Type UserControl}}">
     <UserControl.Resources>
 
         <Style x:Key="test" TargetType="Button">
@@ -67,11 +67,12 @@
                 <Button x:Name="eighth" Content="8" Style="{StaticResource test}" Margin="319,404,551,286" />
                 <Button x:Name="patch" Content="9" Style="{StaticResource test}" Margin="485,404,385,286" />
                 <Button x:Name="dlc" Content="10" Style="{StaticResource test}" Margin="616,482,254,208" />
+                <TextBlock x:Name="lvlPerc" Margin="225,630,0,0" TextWrapping="Wrap" FontSize="28" MaxWidth="350" HorizontalAlignment="Left" TextAlignment="Center"/>
             </Grid>
         </StackPanel>
         <DockPanel Style="{StaticResource TextFont}" Grid.Column="1" LastChildFill="True" HorizontalAlignment="Stretch">
             <TextBlock x:Name="levelName" DockPanel.Dock="Top" Margin="50 50 50 0"  TextWrapping="Wrap"> Номер уровня</TextBlock>
-            <Button x:Name="playButton" DockPanel.Dock="Bottom" Margin="120 0 120 50" Content="Играть" Click="PlayButton_Click" IsDefault="True" Background="MintCream"/>
+            <Button x:Name="playButton" DockPanel.Dock="Bottom" Margin="120 0 120 50" Content="Играть" Click="PlayButton_Click" IsDefault="True"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <TextBlock x:Name="levelDescription" Margin="25" FontSize="25" TextWrapping="Wrap"> Долгое описание</TextBlock>
             </ScrollViewer>

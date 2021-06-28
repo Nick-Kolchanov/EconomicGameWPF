@@ -21,11 +21,16 @@ namespace EconomicGameWPF
     public partial class MinigameDemand : UserControl
     {
         public event ChangeUCEvent ChangeUCClick;
+        bool onlyCheck;
+        int scorePerc;
 
         public MinigameDemand()
         {
             InitializeComponent();
             taskBox.Visibility = Visibility.Collapsed;
+            readyButton.Content = "Проверить";
+            onlyCheck = true;
+            scorePerc = 0;
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +46,15 @@ namespace EconomicGameWPF
 
         private void ReadyButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!onlyCheck)
+            {
+                ChangeUCClick?.Invoke(UCType.Main, 6, scorePerc);
+                return;
+            }
+
             var cnt = 0;
+            var total = 6;
+
             foreach (var item in SubstPanel.Children)
             {
                 if (item is Image img)
@@ -51,6 +64,10 @@ namespace EconomicGameWPF
                         img.Source.ToString() == subst3.Source.ToString())
                     {
                         cnt++;
+                    }
+                    else
+                    {
+                        img.Opacity = 0.5;
                     }
                 }
             }
@@ -68,14 +85,16 @@ namespace EconomicGameWPF
                 }
             }
 
-            if (cnt == 6)
-                MessageBox.Show($"Ваш результат = {cnt} из 6. Отлично, молодец!");
-            else if (cnt > 3)
-                MessageBox.Show($"Ваш результат = {cnt} из 6. Неплохо");
+            if (cnt == total)
+                MessageBox.Show($"Ваш результат = {cnt} из {total}. Отлично, молодец!");
+            else if (cnt > Math.Ceiling(total / 2f))
+                MessageBox.Show($"Ваш результат = {cnt} из {total}. Неплохо");
             else
-                MessageBox.Show($"Ваш результат = {cnt} из 6.");
+                MessageBox.Show($"Ваш результат = {cnt} из {total}.");
 
-            ChangeUCClick?.Invoke(UCType.Main, 6);
+            scorePerc = 100 * cnt / total;
+            readyButton.Content = "К следующим заданиям";
+            onlyCheck = false;
         }
 
         private void SubstPanel_Drop(object sender, DragEventArgs e)

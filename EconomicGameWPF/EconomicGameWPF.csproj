@@ -186,6 +186,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="SavedData\stats.dat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -292,6 +293,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\ElasticTheme\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\stats.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

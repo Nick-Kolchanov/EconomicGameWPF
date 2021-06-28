@@ -66,7 +66,7 @@
 
             <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
                 <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
-                    <StackPanel Margin="25">
+                    <StackPanel x:Name="comboBoxPanel" Margin="25">
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="Пожалуйста, выберите буквенное обозначение для каждого термина:" MaxWidth="600"/>
 
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Спрос" MaxWidth="600"/>

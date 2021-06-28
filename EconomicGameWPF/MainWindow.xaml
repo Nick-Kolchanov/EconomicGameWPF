@@ -43,6 +43,14 @@
                         </ControlTemplate>
                     </Separator.Template>
                 </Separator>
+                <MenuItem Click="StatsMenuItem_Click">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="images\stats.png" Margin="0 5 10 5"></Image>
+                            <TextBlock VerticalAlignment="Center">Статистика</TextBlock>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
                 <MenuItem Click="ResetMenuItem_Click">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">

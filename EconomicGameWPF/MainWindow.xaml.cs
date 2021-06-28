@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace EconomicGameWPF
 { 
@@ -29,7 +31,7 @@ namespace EconomicGameWPF
         MarketEquillibrium,
         Elastic
     }
-    public delegate void ChangeUCEvent(UCType type, int maxLevelInd = 0);
+    public delegate void ChangeUCEvent(UCType type, int maxLevelInd = 0, int localScore = -1);
 
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -37,11 +39,21 @@ namespace EconomicGameWPF
     public partial class MainWindow : Window
     {
         int maxLevelInd;
+        readonly bool easyGame = false;
+        static Dictionary<int, int> stats;
 
         public MainWindow()
         {
             InitializeComponent();
             Loaded += OnWindowLoaded;
+            stats = new Dictionary<int, int>();
+
+            using (StreamReader sr = new StreamReader(Application.Current.Resources["SettingsDir"].ToString()))
+            {
+                var text = sr.ReadToEnd();
+                if (text[2] == '1')
+                    easyGame = true;
+            }
         }
 
         private void OnWindowLoaded(object sender, RoutedEventArgs e)
@@ -49,15 +61,44 @@ namespace EconomicGameWPF
             LoadSave();
         }
 
-        public void ChangeUserControl(UCType type, int _maxLevelInd = 0)
+
+        public static int GetAvgPercent()
         {
+            var sum = 0;
+            var cnt = 0;
+            foreach (var lvl in stats)
+            {
+                sum += lvl.Value;
+                cnt++;
+            }
+
+            if (cnt == 0)
+                return 0;
+            else
+                return sum / cnt;
+        }
+
+        public void ChangeUserControl(UCType type, int _maxLevelInd = 0, int localScorePerc = -1)
+        {
+            UpdateStats(_maxLevelInd, localScorePerc);
+
             if (_maxLevelInd != 0 && _maxLevelInd > maxLevelInd)
                 maxLevelInd = _maxLevelInd;
+
+            if (localScorePerc != -1 && !easyGame)
+            {
+                if (localScorePerc < 50)
+                {
+                    MessageBox.Show("Чтобы продвинуться дальше, нужно набрать более 50% правильных ответов.");
+                    maxLevelInd--;
+                }
+            }
+
 
             switch (type)
             {
                 case UCType.Main:
-                    MainUC mainUC = new MainUC(maxLevelInd);
+                    MainUC mainUC = new MainUC(maxLevelInd, GetAvgPercent());
                     mainUC.ChangeUCClick += ChangeUserControl;
                     OutputView.Content = mainUC;
                     break;
@@ -104,6 +145,20 @@ namespace EconomicGameWPF
             }
         }
 
+        private void UpdateStats(int _maxLevelInd, int localScorePerc)
+        {
+            if (_maxLevelInd != 0 && localScorePerc != -1)
+                if (stats.TryGetValue(_maxLevelInd - 1, out int oldPerc))
+                {
+                    if (localScorePerc > oldPerc)
+                        stats[_maxLevelInd - 1] = localScorePerc;
+                }
+                else
+                {
+                    stats[_maxLevelInd - 1] = localScorePerc;
+                }
+        }
+
         private void LoadMenuItem_Click(object sender, RoutedEventArgs e)
         {
             string filePath = "";
@@ -133,6 +188,12 @@ namespace EconomicGameWPF
 
         private void LoadSave()
         {
+            using (FileStream fs = new FileStream(Application.Current.Resources["StatsDir"].ToString(), FileMode.Open))
+            {
+                var bf = new BinaryFormatter();
+                stats = (Dictionary<int, int>)bf.Deserialize(fs);
+            }
+
             using (StreamReader sr = new StreamReader(Application.Current.Resources["SaveDir"].ToString()))
             {
                 if (!int.TryParse(sr.ReadLine(), out int _levelInd))
@@ -143,27 +204,52 @@ namespace EconomicGameWPF
             }
         }
 
-        private void SaveMenuItem_Click(object sender, RoutedEventArgs e)
+        private void Save()
         {
             using (StreamWriter sw = new StreamWriter(Application.Current.Resources["SaveDir"].ToString(), false))
             {
                 sw.WriteLine(maxLevelInd);
             }
+
+            using (FileStream fs = new FileStream(Application.Current.Resources["StatsDir"].ToString(), FileMode.OpenOrCreate))
+            {
+                new BinaryFormatter().Serialize(fs, stats);
+            }
+        }
+
+        private void SaveMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Save();
+
             MessageBox.Show("Сохранено!");
         }
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            Save();
             Close();
+        }
+
+        private void StatsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var statString = "Статистика по уровням:\n";
+            var lvlDesc = (ArrayList)Application.Current.Resources["LevelsDescriptions"];
+
+            foreach (var lvl in stats)
+            {
+                statString += lvlDesc[lvl.Key - 1].ToString().Split(';')[0];
+                statString += " = " + lvl.Value + "%\n";
+            }
+            statString += "\nСредний процент = " + GetAvgPercent();
+            MessageBox.Show(statString);
         }
 
         private void ResetMenuItem_Click(object sender, RoutedEventArgs e)
         {
             maxLevelInd = 1;
-            using (StreamWriter sw = new StreamWriter(Application.Current.Resources["SaveDir"].ToString(), false))
-            {
-                sw.WriteLine(maxLevelInd);
-            }
+            stats.Clear();
+            Save();
+
             ChangeUserControl(UCType.Main);
         }
     }

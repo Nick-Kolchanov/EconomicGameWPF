@@ -24,13 +24,15 @@ namespace EconomicGameWPF
         private ArrayList levelDescriptions;
         private int choosedLevel;
         private readonly int maxLevelInd;
+        private readonly int perc;
         public event ChangeUCEvent ChangeUCClick;
 
-        public MainUC(int levelInd)
+        public MainUC(int levelInd, int lvlPerc)
         {
             InitializeComponent();
             Loaded += OnUCLoaded;
             maxLevelInd = levelInd;
+            perc = lvlPerc;
         }
 
         private void OnUCLoaded(object sender, RoutedEventArgs e)
@@ -38,6 +40,11 @@ namespace EconomicGameWPF
             levelName.Text = "Выберите уровень";
             levelDescription.Text = "...";
             levelDescriptions = (ArrayList)Application.Current.Resources["LevelsDescriptions"];
+
+            if (perc == 0)
+                lvlPerc.Text = "";
+            else
+                lvlPerc.Text = $"Среднее количество правильных ответов = {perc}%";
 
             foreach (var item in roadGrid.Children)
             {

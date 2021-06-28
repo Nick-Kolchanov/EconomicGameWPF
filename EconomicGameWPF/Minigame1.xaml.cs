@@ -21,11 +21,16 @@ namespace EconomicGameWPF
     public partial class Minigame1 : UserControl
     {
         public event ChangeUCEvent ChangeUCClick;
+        bool onlyCheck;
+        int scorePerc;
 
         public Minigame1()
         {
             InitializeComponent();
             taskBox.Visibility = Visibility.Collapsed;
+            readyButton.Content = "Проверить";
+            onlyCheck = true;
+            scorePerc = 0;
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -41,30 +46,53 @@ namespace EconomicGameWPF
 
         private void ReadyButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!onlyCheck)
+            {
+                ChangeUCClick?.Invoke(UCType.Main, 2, scorePerc);
+                return;
+            }
+
+            var total = 7;
             var cnt = 0;
-            if ((bool)capitalRadioButton1.IsChecked)
-                cnt++;
-            if ((bool)entrepreneurRadioButton2.IsChecked)
-                cnt++;
-            if ((bool)fieldRadioButton3.IsChecked)
-                cnt++;
-            if ((bool)fieldRadioButton4.IsChecked)
-                cnt++;
-            if ((bool)laborRadioButton5.IsChecked)
-                cnt++;
-            if ((bool)capitalRadioButton6.IsChecked)
-                cnt++;
-            if ((bool)laborRadioButton7.IsChecked)
-                cnt++;
+            var correctBrush = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+            var wrongBrush = new SolidColorBrush(Color.FromRgb(200, 0, 0));
 
-            if (cnt == 7)
-                MessageBox.Show($"Ваш результат = {cnt} из 7. Отлично, молодец!");
-            else if (cnt > 4)
-                MessageBox.Show($"Ваш результат = {cnt} из 7. Неплохо");
+            capitalRadioButton1.Foreground = correctBrush;
+            entrepreneurRadioButton2.Foreground = correctBrush;
+            fieldRadioButton3.Foreground = correctBrush;
+            fieldRadioButton4.Foreground = correctBrush;
+            laborRadioButton5.Foreground = correctBrush;
+            capitalRadioButton6.Foreground = correctBrush;
+            laborRadioButton7.Foreground = correctBrush;
+
+            foreach (var elem in ((StackPanel)taskBox.Child).Children)
+            {
+                if (elem is WrapPanel panel)
+                {
+                    foreach (var elemWrapPanel in panel.Children)
+                    {
+                        if (elemWrapPanel is RadioButton button && (bool)button.IsChecked)
+                        {
+                            if (button.Foreground != correctBrush)
+                                button.Foreground = wrongBrush;
+                            else if (button.Foreground == correctBrush)
+                                cnt++;
+                        }
+                    }
+                }
+            }
+
+            if (cnt == total)
+                MessageBox.Show($"Ваш результат = {cnt} из {total}. Отлично, молодец!");
+            else if (cnt > Math.Ceiling(total/2f))
+                MessageBox.Show($"Ваш результат = {cnt} из {total}. Неплохо");
             else
-                MessageBox.Show($"Ваш результат = {cnt} из 7.");
+                MessageBox.Show($"Ваш результат = {cnt} из {total}.");
 
-            ChangeUCClick?.Invoke(UCType.Main, 2);
+
+            scorePerc = 100 * cnt / total;
+            readyButton.Content = "К следующим заданиям";
+            onlyCheck = false;
         }
     }
 }

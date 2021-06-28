@@ -65,7 +65,7 @@
 
             <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
                 <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
-                    <StackPanel Margin="25">
+                    <StackPanel x:Name="radioButtonPanel" Margin="25">
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="Пожалуйста, ответьте на вопросы:" MaxWidth="600"/>
 
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Что произойдет с бензином, если цена на автомобили упадет?" MaxWidth="600"/>

@@ -21,11 +21,16 @@ namespace EconomicGameWPF
     public partial class MinigameSupply : UserControl
     {
         public event ChangeUCEvent ChangeUCClick;
+        bool onlyCheck;
+        int scorePerc;
 
         public MinigameSupply()
         {
             InitializeComponent();
             taskBox.Visibility = Visibility.Collapsed;
+            readyButton.Content = "Проверить";
+            onlyCheck = true;
+            scorePerc = 0;
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -41,27 +46,50 @@ namespace EconomicGameWPF
 
         private void ReadyButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!onlyCheck)
+            {
+                ChangeUCClick?.Invoke(UCType.Main, 7, scorePerc);
+                return;
+            }
+
+            var total = 5;
             var cnt = 0;
+            var correctBrush = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+            var wrongBrush = new SolidColorBrush(Color.FromRgb(200, 0, 0));
 
-            if ((bool)radioButton11.IsChecked)
-                cnt++;
-            if ((bool)radioButton22.IsChecked)
-                cnt++;
-            if ((bool)radioButton34.IsChecked)
-                cnt++;
-            if ((bool)radioButton41.IsChecked)
-                cnt++;
-            if ((bool)radioButton53.IsChecked)
-                cnt++;
+            radioButton11.Foreground = correctBrush;
+            radioButton22.Foreground = correctBrush;
+            radioButton34.Foreground = correctBrush;
+            radioButton41.Foreground = correctBrush;
+            radioButton53.Foreground = correctBrush;
 
-            if (cnt == 5)
-                MessageBox.Show($"Ваш результат = {cnt} из 5. Отлично, молодец!");
-            else if (cnt > 2)
-                MessageBox.Show($"Ваш результат = {cnt} из 5. Неплохо");
+            foreach (var elem in radioButtonPanel.Children)
+            {
+                if (elem is WrapPanel panel)
+                {
+                    foreach (var elemPanel in panel.Children)
+                    {
+                        if (elemPanel is RadioButton button)
+                        {
+                            if ((bool)button.IsChecked && button.Foreground != correctBrush)
+                                button.Foreground = wrongBrush;
+                            else if ((bool)button.IsChecked && button.Foreground == correctBrush)
+                                cnt++;
+                        }
+                    }
+                }
+            }
+
+            if (cnt == total)
+                MessageBox.Show($"Ваш результат = {cnt} из {total}. Отлично, молодец!");
+            else if (cnt > Math.Ceiling(total / 2f))
+                MessageBox.Show($"Ваш результат = {cnt} из {total}. Неплохо");
             else
-                MessageBox.Show($"Ваш результат = {cnt} из 5.");
+                MessageBox.Show($"Ваш результат = {cnt} из {total}.");
 
-            ChangeUCClick?.Invoke(UCType.Main, 7);
+            scorePerc = 100 * cnt / total;
+            readyButton.Content = "К следующим заданиям";
+            onlyCheck = false;
         }
     }
 }

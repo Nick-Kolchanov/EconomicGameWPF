@@ -21,7 +21,7 @@ namespace EconomicGameWPF
     /// </summary>
     public partial class Settings : Window
     {
-        private Menu parentWindow;
+        private readonly Menu parentWindow;
 
         public Settings(object parent)
         {
@@ -41,12 +41,12 @@ namespace EconomicGameWPF
                 else
                     text += '0';
 
-                if ((bool)OtherCheckBox.IsChecked)
+                if ((bool)ThemeCheckBox.IsChecked)
                     text += '1';
                 else
                     text += '0';
 
-                if ((bool)OneMoreCheckBox.IsChecked)
+                if ((bool)EasyModeCheckBox.IsChecked)
                     text += '1';
                 else
                     text += '0';
@@ -66,14 +66,14 @@ namespace EconomicGameWPF
                     MusicCheckBox.IsChecked = false;
 
                 if (text[1] == '1')
-                    OtherCheckBox.IsChecked = true;
+                    ThemeCheckBox.IsChecked = true;
                 else
-                    OtherCheckBox.IsChecked = false;
+                    ThemeCheckBox.IsChecked = false;
 
                 if (text[2] == '1')
-                    OneMoreCheckBox.IsChecked = true;
+                    EasyModeCheckBox.IsChecked = true;
                 else
-                    OneMoreCheckBox.IsChecked = false;
+                    EasyModeCheckBox.IsChecked = false;
             }
         }
 
@@ -88,14 +88,14 @@ namespace EconomicGameWPF
             parentWindow.soundPlayer.Stop();
         }
 
-        private void OtherCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void ThemeCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Извините, пока что не доступно");
+            MessageBox.Show("Извините, это еще находится в разработке");
         }
 
-        private void OneMoreCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void EasyModeCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Извините, пока что не доступно");
+            MessageBox.Show("Теперь для продвижения по уровням не нужно набирать более 50% правильных ответов.");
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

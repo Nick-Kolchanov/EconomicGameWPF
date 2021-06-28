@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EconomicGameWPF"
              mc:Ignorable="d" 
              Height="740" Width="1190"
-             Background="Azure">
+             Style="{StaticResource {x:Type UserControl}}">
     <UserControl.Resources>
         <Style x:Key="NewFontSize">
             <Setter Property="TextBlock.FontSize" Value="30"/>
@@ -18,7 +18,7 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button MaxWidth="300" Background="MintCream" MaxHeight="60" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
+        <Button MaxWidth="300" MaxHeight="60" FontSize="40" HorizontalAlignment="Right" Margin="0 0 30 0" Click="ExitButton_Click" IsCancel="True">Обратно</Button>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -27,9 +27,8 @@
             </Grid.ColumnDefinitions>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25" Style="{StaticResource NewFontSize}">
-                
-                    <StackPanel MinWidth="300">
-                        <TextBlock Margin="25" TextWrapping="Wrap"> 
+                <StackPanel MinWidth="300">
+                    <TextBlock Margin="25" TextWrapping="Wrap"> 
                             <Run FontSize="40" FontWeight="Bold"  Text="Экономика как наука"/>
                             <LineBreak/> 
                             <Run Text="    "/> Экономика - большая широкая наука, изучающая множество вещей. У нее 
@@ -47,9 +46,9 @@
                             их производства нужны ресурсы, такие блага называют ограниченными, экономическими (их еще разделяют на товары и услуги). 
                             <LineBreak/>
                             <Run Text="    "/> Тут и возникает одно из главных понятий экономики - необходимость выбора.
-                        </TextBlock>
-                        <Image Source="images/firstTheme/choiceEconomic.png" Margin="30" MaxWidth="600" HorizontalAlignment="Center"/>
-                        <TextBlock Margin="25" TextWrapping="Wrap">
+                    </TextBlock>
+                    <Image Source="images/firstTheme/choiceEconomic.png" Margin="30" MaxWidth="600" HorizontalAlignment="Center"/>
+                    <TextBlock Margin="25" TextWrapping="Wrap">
                             <Run Text="    "/> Рассмотрим поближе термин "ресурсы", они же "факторы производства". Экономисты выделяют 4 типа ресурсов:
                             <LineBreak/>
                             <Run Text="    "/> • Труд (например рабочие на заводе или дворники)
@@ -62,20 +61,18 @@
                             <LineBreak/>
                             <LineBreak/>
                             <Run Text="    "/> Перед тем, как мы перейдем к последствиям необходимости экономического выбора, давайте закрепим понимание различных видов факторов произодства.
-                        </TextBlock>
-                    <Button x:Name="taskButton" Content="К заданию" Margin="40" Background="MintCream" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
-                    </StackPanel>
-                
+                    </TextBlock>
+                    <Button x:Name="taskButton" Content="К заданию" Margin="40" HorizontalAlignment="Center" Click="TaskButton_Click" IsDefault="True"/>
+                </StackPanel>
             </ScrollViewer>
             
-
             <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
 
             <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
                 <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
                     <StackPanel Margin="25">
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="Укажите, к какому фактору производства относятся вещи на картинках:" MaxWidth="600"/>
-
+                        
                         <Image Source="images/firstTheme/plane.png" Margin="40" MaxWidth="300"/>
                         <WrapPanel HorizontalAlignment="Center" MaxWidth="500" >
                             <RadioButton x:Name="laborRadioButton1" Margin="10" Content="Труд"/>
@@ -159,7 +156,8 @@
                                 </RadioButton.Content>
                             </RadioButton>
                         </WrapPanel>
-                        <Button x:Name="readyButton" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Background="MintCream" Click="ReadyButton_Click" IsDefault="True"/>
+                        
+                        <Button x:Name="readyButton" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
                     </StackPanel>
                 </Viewbox>
             </ScrollViewer>

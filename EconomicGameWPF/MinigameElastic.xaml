@@ -66,7 +66,7 @@
 
             <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource NewFontSize}">
                 <Viewbox x:Name="taskBox"  Visibility="Visible" MinWidth="500">
-                    <StackPanel Margin="25">
+                    <StackPanel x:Name="radioButtonPanel" Margin="25">
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="Пожалуйста, ответьте на вопросы:" MaxWidth="600"/>
 
                         <TextBlock TextWrapping="Wrap" Margin="25" Text="1) Какого знака эластичность спроса по цене?" MaxWidth="600"/>
@@ -169,7 +169,7 @@
                             </RadioButton>
                         </WrapPanel>
 
-                        <Button x:Name="readyButton" Background="MintCream" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
+                        <Button x:Name="readyButton" Content="Завершить задание" Margin="40" HorizontalAlignment="Center" Click="ReadyButton_Click" IsDefault="True"/>
                     </StackPanel>
                 </Viewbox>
             </ScrollViewer>

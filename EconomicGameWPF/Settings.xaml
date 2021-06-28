@@ -7,25 +7,22 @@
         mc:Ignorable="d"
         Title="Settings" Height="450" Width="800" WindowStartupLocation="CenterScreen"
         Background="Azure">
-    <Window.Resources>
-        
-    </Window.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center" Style="{StaticResource TextFont}">
             <TextBlock Text="Настройки" HorizontalAlignment="Center" FontSize="50" Margin="0 10 0 20"/>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
                 <TextBlock>Музыка</TextBlock>
-                <CheckBox x:Name="MusicCheckBox" VerticalAlignment="Center" Margin="10" Checked="MusicCheckBox_Checked" Unchecked="MusicCheckBox_Unchecked"></CheckBox>
+                <CheckBox x:Name="MusicCheckBox" VerticalAlignment="Center" Margin="10" Checked="MusicCheckBox_Checked" Unchecked="MusicCheckBox_Unchecked"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
                 <TextBlock>Темная тема</TextBlock>
-                <CheckBox x:Name="OtherCheckBox" VerticalAlignment="Center" Margin="10" Checked="OtherCheckBox_Checked"></CheckBox>
+                <CheckBox x:Name="ThemeCheckBox" VerticalAlignment="Center" Margin="10" Checked="ThemeCheckBox_Checked"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <TextBlock>Увеличенная <LineBreak/> сложность</TextBlock>
-                <CheckBox x:Name="OneMoreCheckBox" VerticalAlignment="Center" Margin="10" Checked="OneMoreCheckBox_Checked"></CheckBox>
+                <TextBlock>Упрощенный <LineBreak/> режим</TextBlock>
+                <CheckBox x:Name="EasyModeCheckBox" VerticalAlignment="Center" Margin="10" Checked="EasyModeCheckBox_Checked"/>
             </StackPanel>
-            <Button x:Name="BackButton" Content="Назад" Margin="10 25 10 0" Click="BackButton_Click" IsDefault="True" IsCancel="True" Background="MintCream"/>
+            <Button x:Name="BackButton" Content="Назад" Margin="10 25 10 0" Click="BackButton_Click" IsDefault="True" IsCancel="True"/>
         </StackPanel>
     </Grid>
 </Window>
