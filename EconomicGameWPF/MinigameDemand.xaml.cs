@@ -82,6 +82,10 @@ namespace EconomicGameWPF
                     {
                         cnt++;
                     }
+                    else
+                    {
+                        img.Opacity = 0.5;
+                    }
                 }
             }
 
@@ -110,10 +114,14 @@ namespace EconomicGameWPF
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            var cnt = SubstPanel.Children.Count + ComplPanel.Children.Count;
+
             Image image = e.Source as Image;
             DataObject data = new DataObject(typeof(ImageSource), image.Source);
             DragDrop.DoDragDrop(image, data, DragDropEffects.Move);
-            (sender as Image).Visibility = Visibility.Collapsed;
+
+            if (SubstPanel.Children.Count + ComplPanel.Children.Count != cnt)
+                (sender as Image).Visibility = Visibility.Collapsed;
         }
 
         

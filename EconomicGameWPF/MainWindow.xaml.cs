@@ -94,6 +94,12 @@ namespace EconomicGameWPF
                 }
             }
 
+            if (_maxLevelInd == 10 && GetAvgPercent() > 90)
+            {
+                MessageBox.Show("Вы получили медальку! Отлично!");
+                medalMenu.Visibility = Visibility.Visible;
+            }
+
 
             switch (type)
             {
@@ -177,13 +183,26 @@ namespace EconomicGameWPF
             {
                 if (!int.TryParse(sr.ReadLine(), out int _levelInd))
                 {
-                    MessageBox.Show("Неверный файл сохранения!");
-                    return;
+                    var bv = new BinaryFormatter();
+                    try
+                    {
+                        var fs = new FileStream(filePath, FileMode.Open);
+                        stats = (Dictionary<int, int>)bv.Deserialize(fs);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Неверный файл сохранения!");
+                        return;
+                    }
                 }
-                    
-                maxLevelInd = _levelInd;
-                ChangeUserControl(UCType.Main);
+                else
+                {
+                    maxLevelInd = _levelInd;
+                }
             }
+
+
+            ChangeUserControl(UCType.Main);
         }
 
         private void LoadSave()

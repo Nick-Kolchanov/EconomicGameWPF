@@ -62,7 +62,7 @@ namespace EconomicGameWPF
                 cnt++;
                 ((TextBlock)demand.SelectedItem).Foreground = correctBrush;
             }
-            else
+            else if ((demand.SelectedItem as TextBlock) != null)
                 ((TextBlock)demand.SelectedItem).Foreground = wrongBrush;
 
             if ((income.SelectedItem as TextBlock)?.Text == "I")
@@ -70,7 +70,7 @@ namespace EconomicGameWPF
                 cnt++;
                 ((TextBlock)income.SelectedItem).Foreground = correctBrush;
             }
-            else
+            else if ((income.SelectedItem as TextBlock) != null)
                 ((TextBlock)income.SelectedItem).Foreground = wrongBrush;
 
             if ((quantDem.SelectedItem as TextBlock)?.Text == "Q(d)")
@@ -78,7 +78,7 @@ namespace EconomicGameWPF
                 cnt++;
                 ((TextBlock)quantDem.SelectedItem).Foreground = correctBrush;
             }
-            else
+            else if((quantDem.SelectedItem as TextBlock) != null)
                 ((TextBlock)quantDem.SelectedItem).Foreground = wrongBrush;
 
             if ((supply.SelectedItem as TextBlock)?.Text == "S")
@@ -86,7 +86,7 @@ namespace EconomicGameWPF
                 cnt++;
                 ((TextBlock)supply.SelectedItem).Foreground = correctBrush;
             }
-            else
+            else if ((supply.SelectedItem as TextBlock) != null)
                 ((TextBlock)supply.SelectedItem).Foreground = wrongBrush;
 
             if ((price.SelectedItem as TextBlock)?.Text == "P")
@@ -94,7 +94,7 @@ namespace EconomicGameWPF
                 cnt++;
                 ((TextBlock)price.SelectedItem).Foreground = correctBrush;
             }
-            else
+            else if ((price.SelectedItem as TextBlock) != null)
                 ((TextBlock)price.SelectedItem).Foreground = wrongBrush;
 
             if ((tr.SelectedItem as TextBlock)?.Text == "TR")
@@ -102,7 +102,7 @@ namespace EconomicGameWPF
                 cnt++;
                 ((TextBlock)tr.SelectedItem).Foreground = correctBrush;
             }
-            else
+            else if ((tr.SelectedItem as TextBlock) != null)
                 ((TextBlock)tr.SelectedItem).Foreground = wrongBrush;
 
             if ((quantSup.SelectedItem as TextBlock)?.Text == "Q(s)")
@@ -110,7 +110,7 @@ namespace EconomicGameWPF
                 cnt++;
                 ((TextBlock)quantSup.SelectedItem).Foreground = correctBrush;
             }
-            else
+            else if ((quantSup.SelectedItem as TextBlock) != null)
                 ((TextBlock)quantSup.SelectedItem).Foreground = wrongBrush;
 
 

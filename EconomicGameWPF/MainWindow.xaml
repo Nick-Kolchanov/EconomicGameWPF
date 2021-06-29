@@ -59,6 +59,15 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
+
+                <MenuItem Margin="500 0 0 0" x:Name="medalMenu" Visibility="Collapsed" IsEnabled="False">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="images\medal.png" Margin="0 5 10 5"></Image>
+                            <TextBlock VerticalAlignment="Center">Знаток экономики!</TextBlock>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
             </Menu>
 
             <ContentPresenter x:Name="OutputView" Height="740" Width="1190"/>
